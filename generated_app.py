@@ -1,20 +1,20 @@
 
-from tkinter import *
+import tkinter as tk
 
-root = Tk()
-root.title("Login App")
+def calculate():
+    result.set(eval(entry.get()))
 
-label_1 = Label(root, text="Username")
-label_1.pack()
-entry_1 = Entry(root)
-entry_1.pack()
+window = tk.Tk()
+window.title("Calculator")
 
-label_2 = Label(root, text="Password")
-label_2.pack()
-entry_2 = Entry(root, show="*")
-entry_2.pack()
+entry = tk.Entry(window, width=20)
+entry.pack()
 
-button = Button(root, text="Login")
+button = tk.Button(window, text="Calculate", command=calculate)
 button.pack()
 
-root.mainloop()
+result = tk.StringVar()
+output = tk.Label(window, textvariable=result)
+output.pack()
+
+window.mainloop()

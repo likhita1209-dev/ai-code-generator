@@ -2,9 +2,7 @@ import requests
 import os
 import re
 
-API_KEY = "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"
-
-
+API_KEY = "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"
 def generate_code(prompt):
     url = "https://openrouter.ai/api/v1/chat/completions"
 
