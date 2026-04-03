@@ -1,0 +1,7 @@
+__pycache__
+.env
+.log
+token
+api
+git
+notepad*
