@@ -1,2 +1,6 @@
+REM Calculator form design code
+Public Class CalculatorForm
+    ' Form code for calculator operations
+End Class
 
-' Code for Windows Forms Calculator
+Application.Run(New CalculatorForm)

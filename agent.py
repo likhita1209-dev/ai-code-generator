@@ -49,14 +49,20 @@ def extract_code(text):
     if not text:
         return ""
 
-    code_blocks = re.findall(r"```(?:\w+)?(.*?)```", text, re.DOTALL)
+    # ✅ Extract code inside ``` blocks
+    code_blocks = re.findall(r"```(?:\w+)?\n(.*?)```", text, re.DOTALL)
 
     if code_blocks:
-        return "\n\n".join(code_blocks)
+        return "\n\n".join(code_blocks).strip()
 
-    return text
+    # ✅ Fallback: remove markdown-like text
+    cleaned = text.strip()
 
+    # Remove common unwanted lines
+    if cleaned.lower().startswith("here is") or "code" in cleaned.lower():
+        return ""
 
+    return cleaned 
 # 🔥 Detect file type
 def detect_file_extension(code, prompt):
     prompt_lower = prompt.lower()
