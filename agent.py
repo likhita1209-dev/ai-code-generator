@@ -1,8 +1,12 @@
 import requests
-import os
 import re
+from dotenv import load_dotenv
+import os
 
-API_KEY = "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"
+load_dotenv()
+
+API_KEY = os.getenv("OPENROUTER_API_KEY")
+
 def generate_code(prompt):
     url = "https://openrouter.ai/api/v1/chat/completions"
 
